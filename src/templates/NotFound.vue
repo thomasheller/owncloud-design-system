@@ -1,19 +1,12 @@
 <template>
   <component :is="type" class="not-found">
-    <NavBar
-      active="NotFound"
-      :navItems="[
-        { name: 'Template', component: 'Index', href: '/#/' },
-        { name: 'Documentation', href: 'http://localhost:6060/' },
-      ]"
-    />
-    <Wrapper>
-      <Heading>404 Error</Heading>
-      <Paragraph
-        >Couldn’t find a component that would match the URL you entered. Double check configuration
-        in router/index.js.</Paragraph
-      >
-    </Wrapper>
+    <OcAppTopBar>
+      <div slot="title">
+        <h4>Error Page</h4>
+      </div>
+    </OcAppTopBar>
+    <!-- oc-app-content missing -->
+    <oc-icon name="close" size="large" />
   </component>
 </template>
 
@@ -23,8 +16,10 @@
  */
 export default {
   name: "NotFound",
+  status: "prototype",
+  release: "0.0.1",
   metaInfo: {
-    title: "Page Not Found | Vue Design System",
+    title: "Page Not Found | ownCloud",
     htmlAttrs: {
       lang: "en",
     },
@@ -36,6 +31,7 @@ export default {
     type: {
       type: String,
       default: "div",
+      required: false,
     },
   },
 }
